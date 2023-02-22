@@ -1,0 +1,55 @@
+@mixin flexMid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dndDrop {
+    display: grid;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(auto-fill, 18rem);
+    gap: 2rem;
+}
+
+.dndGroup {
+    background: #062d5b;
+    border-radius: .5rem;
+    padding: 1rem .5rem .5rem .5rem;
+    box-shadow: 0 .5rem .5rem rgba(0,0,0,.4);
+
+    &>p {
+        color: rgb(231, 243, 253);
+        text-align: start;
+        margin: 0 0 1rem .5rem;
+    }
+}
+
+.dndItem,
+.draggingStyle {
+    @include flexMid;
+    min-height: 10rem;
+    background-color: rgb(231, 243, 253);
+    color: #062d5b;
+    border-radius: .5rem;
+    font-weight: bold;
+    cursor: grab;
+    
+    &:active {
+        cursor: grabbing;
+    }
+
+    &.draggingStyle {
+        background: rgb(221, 238, 255);
+        color: #062e5b7d;
+    }
+
+    & * {
+        margin: 0;
+    }
+
+    &:not(:last-of-type) {
+        margin-bottom: .5rem;
+    }
+}
